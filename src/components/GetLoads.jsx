@@ -15,12 +15,15 @@ import {
   AlertDialogDescription as AlertDescription,
 } from "./ui/alert-dialog";
 import { AlertCircle } from "lucide-react";
+import { APICONSTANTS } from "@/constants/ApiURl";
+
+const API_BASE_URL = APICONSTANTS.BASE_URL;
 
 const GetLoads = () => {
-  const [truckId, setTruckId] = useState("");
+  // const [truckId, setTruckId] = useState("");
   const [location, setLocation] = useState("");
-  const [latitude, setLatitude] = useState("");
-  const [longitude, setLongitude] = useState("");
+  // const [latitude, setLatitude] = useState("");
+  // const [longitude, setLongitude] = useState("");
   const [capacity, setCapacity] = useState("");
   const [loads, setLoads] = useState([]);
   const [summary, setSummary] = useState("");
@@ -35,23 +38,23 @@ const GetLoads = () => {
     const action = e.nativeEvent.submitter?.value;
 
     const payload = {
-      truck_id: truckId,
+      // truck_id: truckId,
       location: location,
-      latitude: parseFloat(latitude),
-      longitude: parseFloat(longitude),
+      // latitude: parseFloat(latitude),
+      // longitude: parseFloat(longitude),
       capacity: parseInt(capacity, 10),
     };
 
     try {
       if (action === "get-loads") {
         const response = await axios.post(
-          "http://localhost:8000/api/v1/recommendations/recommend",
+          `${API_BASE_URL}recommendations/recommend`,
           payload
         );
         setLoads(response.data);
       } else if (action === "get-summary") {
         const response = await axios.post(
-          "http://localhost:8000/api/v1/recommendations/recommend/summary",
+          `${API_BASE_URL}recommendations/recommend/summary`,
           payload
         );
         setSummary(response.data.summary);

@@ -15,6 +15,9 @@ import {
   AlertDialogDescription as AlertDescription,
 } from "./ui/alert-dialog";
 import { AlertCircle } from "lucide-react";
+import { APICONSTANTS } from "@/constants/ApiURl";
+
+const API_BASE_URL = APICONSTANTS.BASE_URL;
 
 const GetSummary = () => {
   const [truckId, setTruckId] = useState("");
@@ -43,7 +46,7 @@ const GetSummary = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/recommendations/recommend/summary",
+        `${API_BASE_URL}recommendations/recommend/summary`,
         payload
       );
       setSummary(response.data.summary);

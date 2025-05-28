@@ -6,17 +6,20 @@ import { ToastContainer } from "react-toastify";
 // import PostFeedback from "./components/PostFeedback.jsx";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import AddLoad from "./components/addLoad.jsx";
+import DeleteLoad from "./components/DeleteLoad.jsx";
 
 const App = () => {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold mb-8 text-center">Load Balancing</h1>
       <Tabs defaultValue="getLoads" className="w-full">
-        <TabsList className="grid w-full grid-cols-3 mb-4">
+        <TabsList className="grid w-full grid-cols-4 mb-4">
           <TabsTrigger value="getLoads">Get Loads</TabsTrigger>
           {/* <TabsTrigger value="getSummary">Get Summary</TabsTrigger> */}
           <TabsTrigger value="askAgent">Ask Agent</TabsTrigger>
           <TabsTrigger value="add-load">Add New Load</TabsTrigger>
+          <TabsTrigger value="delete-load">Delete Load</TabsTrigger>
+
           {/* <TabsTrigger value="postFeedback">Post Feedback</TabsTrigger> */}
         </TabsList>
         <TabsContent value="getLoads">
@@ -31,6 +34,10 @@ const App = () => {
         <TabsContent value="add-load">
           <AddLoad />
         </TabsContent>
+        <TabsContent value="delete-load">
+          <DeleteLoad />
+        </TabsContent>
+
         {/* <TabsContent value="postFeedback">
           <PostFeedback />
         </TabsContent> */}

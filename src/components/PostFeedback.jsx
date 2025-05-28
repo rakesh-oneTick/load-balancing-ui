@@ -23,6 +23,9 @@ import {
 } from "./ui/alert-dialog";
 import { AlertCircle } from "lucide-react";
 import { CheckCircle } from "lucide-react";
+import { APICONSTANTS } from "@/constants/ApiURl";
+
+const API_BASE_URL = APICONSTANTS.BASE_URL;
 
 const PostFeedback = () => {
   const [truckId, setTruckId] = useState("");
@@ -50,10 +53,7 @@ const PostFeedback = () => {
     };
 
     try {
-      await axios.post(
-        "http://localhost:8000/api/v1/feedback/feedback",
-        payload
-      );
+      await axios.post(`${API_BASE_URL}feedback/feedback`, payload);
       setSuccess(true);
       // Reset form fields upon successful submission
       setTruckId("");
