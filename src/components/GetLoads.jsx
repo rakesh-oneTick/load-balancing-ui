@@ -171,16 +171,16 @@ const GetLoads = () => {
                 <CardHeader>
                   <CardTitle>Load ID: {load.load.load_id}</CardTitle>
                   <CardDescription>
-                    Score: {load.score}, Origin:{" "}
-                    {load.load.origin || load.load.pickup_point}, Destination:{" "}
-                    {load.load.destination}
+                    Origin: {load.load.origin || load.load.pickup_point},
+                    Destination: {load.load.destination}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
+                  <p>Score: {load.score}</p>
                   <p>Rate: {load.load.rate}</p>
                   <p>Status: {load.load.status}</p>
                   <p>Cargo Type: {load.load.cargo_type}</p>
-                  <p>Required Truck Type: {load.load.required_truck_type}</p>
+                  {/* <p>Required Truck Type: {load.load.required_truck_type}</p> */}
                   <p>Weight: {load.load.weight_tons} tons</p>
                   <p>
                     Expected Delivery Date: {load.load.expected_delivery_date}
